@@ -3,12 +3,12 @@ import { Product } from "../../../../types/product";
 import { groq } from "next-sanity";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
-
 interface ProductPageProps {
-    params : {slug : string};
-
+    params: { slug: string };  
+    searchParams?: Record<string, string | string[] | undefined>;  
 }
-async function getProduct (slug : string): Promise <Product>{
+
+async function getProduct (slug : string): Promise <Product | null> {
     return client.fetch (
      groq `*[_type == "product" && slug.current == $slug][0]{
      _id,
@@ -23,7 +23,10 @@ async function getProduct (slug : string): Promise <Product>{
 export default async function ProductPage({params} : ProductPageProps){
     const {slug} = params;
     const product= await getProduct(slug)
-    return(
+    if (!product) {
+        return <p className="text-center text-red-500">Product not found.</p>;
+    }
+    return (
         <div className="max-w-7xl mx-auto px-4">
             <div className="grid grid-col-1 md:grid-cols-2 gap-12">
                 <div className="aspect-square ">
@@ -52,9 +55,11 @@ export default async function ProductPage({params} : ProductPageProps){
     )
 }
 export async function generateStaticParams() {
-    const products: Product[] = await client.fetch(
+    const products: { slug?: string }[] = await client.fetch(
         groq`*[_type == "product"]{ "slug": slug.current }`
     );
 
-    return products.map((product) => ({ slug: product.slug }));
+    return products
+        .filter((product) => product.slug) 
+        .map((product) => ({ slug: product.slug as string }));
 }
