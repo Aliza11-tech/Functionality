@@ -23,9 +23,9 @@ const FigmaToCode = () => {
                 <h1 className="w-[200px] h-[27px] mt-[13px] ml-12 bg-white text-black text-xl font-medium">
                 Best of Air Max
                 </h1>
-                <h1 className="w-[400px] h-[27px] mt-[13px] ml-12 bg-white text-black text-xl font-medium">
+                <Link href={"/Shoes"}><h1 className="w-[400px] h-[27px] mt-[13px] ml-12 bg-white text-black text-xl font-medium">
                 (Fetch from sanity and dynamic too)
-                </h1>
+                </h1></Link>
         <ul className="flex  w-[164.75px] h-[52px] ml-[550px] pl-[7px] items-center gap-2">
             <li className=" w-[37px] h-6 font-medium text-lg text-black mr-2">
                 Shop
