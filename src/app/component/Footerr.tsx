@@ -15,9 +15,9 @@ const Footerr = () => {
             <Link href="/Signin"><h1 className="w-[180px] h-8 pt-2 font-normal text-base text-[#FFFFFF]">
             Sign Up for Email
             </h1></Link>
-             <h1 className="w-[180px] h-8 pt-2 font-normal text-base text-[#FFFFFF]">
+            <Link href={"/Shoes"}><h1 className="w-[180px] h-8 pt-2 font-normal text-base text-[#FFFFFF]">
             Send Us Feedback
-            </h1>
+            </h1></Link>
             <h1 className="w-[180px] h-8 pt-2 font-normal text-base text-[#FFFFFF]">
             Student Discounts
             </h1>

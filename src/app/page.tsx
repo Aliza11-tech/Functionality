@@ -5,12 +5,10 @@ import Gearup from "./component/Gearup";
 import Dontmiss from "./component/Dontmiss";
 import Essentials from "./component/Essentials";
 import Last from "./component/Last";
-import Shoes from "./shoes/page";
 export default function Home() {
   return (
     <main>
       <div className="hidden lg:block">
-        <Shoes/>
         <Herosection />
         <FigmaToCode />
         <Featured />

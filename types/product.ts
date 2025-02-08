@@ -1,11 +1,18 @@
 export interface Product {
     _id : string;
-    _productName : string;
+    productName : string;
+    
     _type : "product";
-    image? : {asset : {
+    image? : {
+        asset : {
         _ref : string;
         _type : "image";
-    }}
+    }
+};
     price : number;
-    description? : string
+    description? : string;
+    slug : {
+        _type : "slug"
+        current : string;
+    }
 }
